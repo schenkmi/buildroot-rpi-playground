@@ -64,6 +64,7 @@ make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" sdk
 ## Flashing
 Please change /dev/sdX with the correct mounting point of your sd card.
 ```
+sudo umount /dev/sdX?*
 sudo dd if=images/sdcard.img of=/dev/sdX bs=1M conv=fdatasync status=progress
 ```
 
@@ -73,6 +74,23 @@ sudo picocom -b 115200 /dev/ttyUSB0
 ```
 
 ## Tips & Tricks
+
+
+### WPA password as hash
+```
+wpa_passphrase
+```
+/etc/wpa_supplicant.conf
+```
+country=CH
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+        ssid="SNK-2.4G"
+        psk=d4faa7fbcc7410b21b0e507823c1b0ff5cba171b151af4f26cc1a248485b025c
+        key_mgmt=WPA-PSK
+}
+```
 
 ### Re-build u-boot
 To re-build u-boot we need to build u-boot and arm-trusted-firmware

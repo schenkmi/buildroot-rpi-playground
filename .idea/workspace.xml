@@ -9,7 +9,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="418d7fe7-e975-4890-8c73-84d7e8c820d6" name="Changes" comment="" />
+    <list default="true" id="418d7fe7-e975-4890-8c73-84d7e8c820d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildroot-external/configs/rpi0w_defconfig" beforeDir="false" afterPath="$PROJECT_DIR$/buildroot-external/configs/rpi0w_defconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme/readme.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710748369740</updated>
-      <workItem from="1710748370804" duration="1428000" />
+      <workItem from="1710748370804" duration="3230000" />
     </task>
     <servers />
   </component>

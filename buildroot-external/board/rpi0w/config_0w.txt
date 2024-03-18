@@ -27,3 +27,6 @@ dtoverlay=miniuart-bt
 
 # enable autoprobing of Bluetooth driver without need of hciattach/btattach
 dtparam=krnbt=on
+
+# Uncomment for USB RNDIS experiments
+#dtoverlay=dwc2,dr_mode=peripheral

@@ -101,3 +101,9 @@ rm -rf build/arm-trusted-firmware-v2.7/
 make
 ```
 
+### Prune all docker images
+```
+docker system prune -a
+```
+
+

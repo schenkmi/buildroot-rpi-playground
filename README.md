@@ -24,7 +24,6 @@ make
 
 The first step is to build the Docker image and create a container. You can specify a directory in your hosts system which will be mounted inside the container. This allows you to copy the built system easily. The current directory must contain the provided Dockerfile which will be compiled into an image. The directory called `build` will contain the sources and the images which will be built later.
 ```
-mkdir -p build
 docker build -t buildroot-rpi-playground .
 docker create -it --name buildroot-rpi-playground --mount type=bind,source="$(pwd)",destination=/home/br-user/buildroot-rpi-playground buildroot-rpi-playground
 ```
@@ -36,6 +35,7 @@ docker start -ia buildroot-rpi-playground
 
 The next step is to create a build directory called `out` which will contain the downloaded package source files and the output images. We will use this directory for an out-of-tree Buildroot build, by adding the `O=` parameter to the make command. We have to specify the directories where the external trees are stored, which can be done by adding the `BR2_EXTERNAL=` parameter to make (We can specify multiple directories by using `:` as a separator). The default config file is called `rpi3_defconfig` which is inside the `configs` directory.
 ```
+cd buildroot-rpi-playground
 mkdir -p out && cd out
 make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi0w_defconfig
 ```

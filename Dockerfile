@@ -1,32 +1,57 @@
-FROM ubuntu:22.04
+FROM debian:bookworm
+
+# Setup environment
+ENV DEBIAN_FRONTEND noninteractive
 
 ENV GIT_NAME John Example
 ENV GIT_EMAIL john@example.org
 
-ARG USERNAME=br
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+# The container has no package lists, so need to update first
+RUN dpkg --add-architecture i386 && \
+    apt-get -o APT::Retries=3 update -y
+RUN apt-get -o APT::Retries=3 install -y --no-install-recommends \
+        bc \
+        build-essential \
+        bzr \
+        ca-certificates \
+        cmake \
+        cpio \
+        cvs \
+        file \
+        g++-multilib \
+        git \
+        libc6:i386 \
+        libncurses5-dev \
+        locales \
+        mercurial \
+        openssh-server \
+        python3 \
+        python3-flake8 \
+        python3-magic \
+        python3-nose2 \
+        python3-pexpect \
+        python3-pytest \
+        rsync \
+        shellcheck \
+        subversion \
+        unzip \
+        wget \
+        && \
+    apt-get -y autoremove && \
+    apt-get -y clean
 
-WORKDIR /build
+# To be able to generate a toolchain with locales, enable one UTF-8 locale
+RUN sed -i 's/# \(en_US.UTF-8\)/\1/' /etc/locale.gen && \
+    /usr/sbin/locale-gen
 
-RUN \
-	apt-get update && apt-get -y install \
-	android-tools-adb android-tools-fastboot autoconf automake \
-	bc bison build-essential cscope curl device-tree-compiler flex \
-	ftp-upload gdisk iasl libattr1-dev libcap-dev libfdt-dev \
-	libftdi-dev libglib2.0-dev libhidapi-dev libncurses5-dev \
-	libpixman-1-dev libssl-dev libtool make \
-	mtools netcat unzip uuid-dev \
-	xdg-utils xterm xz-utils zlib1g-dev git nano wget cpio rsync && \
-	groupadd --gid $USER_GID $USERNAME && \
-        useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && \
-        mkdir -p /etc/sudoers.d/ && \
-        echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
-    	chmod 0440 /etc/sudoers.d/$USERNAME
-    
-RUN \
-	git config --global user.name $GIT_NAME && \
-	git config --global user.email $GIT_EMAIL
+RUN useradd -ms /bin/bash br-user && \
+    chown -R br-user:br-user /home/br-user
 
-USER $USERNAME
+RUN git config --global user.name $GIT_NAME && \
+    git config --global user.email $GIT_EMAIL
+
+USER br-user
+WORKDIR /home/br-user
+ENV HOME /home/br-user
+ENV LC_ALL en_US.UTF-8
 

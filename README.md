@@ -26,7 +26,7 @@ The first step is to build the Docker image and create a container. You can spec
 ```
 mkdir -p build
 docker build -t buildroot-rpi-playground .
-docker create -it --name buildroot-rpi-playground --mount type=bind,source="$(pwd)",destination=/build buildroot-rpi-playground
+docker create -it --name buildroot-rpi-playground --mount type=bind,source="$(pwd)",destination=/home/br-user/buildroot-rpi-playground buildroot-rpi-playground
 ```
 
 You can start the container if it was created successfully. This command gives you an interactive shell inside the container.

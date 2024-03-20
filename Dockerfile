@@ -20,6 +20,8 @@ RUN apt-get -o APT::Retries=3 install -y --no-install-recommends \
         file \
         g++-multilib \
         git \
+        pkgconf \
+        sudo \
         libc6:i386 \
         libncurses5-dev \
         locales \
@@ -46,6 +48,10 @@ RUN sed -i 's/# \(en_US.UTF-8\)/\1/' /etc/locale.gen && \
 
 RUN useradd -ms /bin/bash br-user && \
     chown -R br-user:br-user /home/br-user
+
+RUN mkdir -p /etc/sudoers.d/ && \
+    echo br-user ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/br-user && \
+    chmod 0440 /etc/sudoers.d/br-user
 
 RUN git config --global user.name $GIT_NAME && \
     git config --global user.email $GIT_EMAIL

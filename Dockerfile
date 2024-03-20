@@ -16,7 +16,6 @@ RUN apt-get -o APT::Retries=3 install -y --no-install-recommends \
         ca-certificates \
         cmake \
         cpio \
-        cvs \
         file \
         g++-multilib \
         git \
@@ -25,7 +24,6 @@ RUN apt-get -o APT::Retries=3 install -y --no-install-recommends \
         libc6:i386 \
         libncurses5-dev \
         locales \
-        mercurial \
         openssh-server \
         python3 \
         python3-flake8 \
@@ -35,9 +33,10 @@ RUN apt-get -o APT::Retries=3 install -y --no-install-recommends \
         python3-pytest \
         rsync \
         shellcheck \
-        subversion \
         unzip \
         wget \
+        mc \
+        vim \
         && \
     apt-get -y autoremove && \
     apt-get -y clean

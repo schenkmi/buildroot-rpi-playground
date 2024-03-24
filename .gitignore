@@ -25,5 +25,9 @@ modules.builtin
 *~
 
 out/
+rpi0w/
+rpi02w/
+rpi3/
+rpi4/
 .idea/
 

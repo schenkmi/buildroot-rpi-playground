@@ -12,11 +12,30 @@ git clone --recursive https://github.com/schenkmi/buildroot-rpi-playground.git
 
 ## Build instructions plain Linux
 
-You can build the image with
+### Raspberry Pi Zero W
+
 ```
 cd buildroot-rpi-playground
-mkdir -p out && cd out
+mkdir -p rpi0w && cd rpi0w
 make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi0w_defconfig
+make
+```
+
+### Raspberry Pi Zero 2 W
+
+```
+cd buildroot-rpi-playground
+mkdir -p rpi02w && cd rpi02w
+make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi02w_defconfig
+make
+```
+
+### Raspberry Pi 3B, 3B+, 3A+
+
+```
+cd buildroot-rpi-playground
+mkdir -p rpi3 && cd rpi3
+make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi3_defconfig
 make
 ```
 

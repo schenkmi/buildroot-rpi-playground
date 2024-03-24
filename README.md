@@ -92,8 +92,13 @@ sudo dd if=images/sdcard.img of=/dev/sdX bs=1M conv=fdatasync status=progress
 sudo picocom -b 115200 /dev/ttyUSB0
 ```
 
-## Tips & Tricks
+## Tag release
+```
+git tag -a release_20240324 -m "Release 2024.03.24 Buildroot 2024.02 RPI0W, RPI02W and RPI3"
+git push --tags
+```
 
+## Tips & Tricks
 
 ### WPA password as hash
 ```

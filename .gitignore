@@ -13,7 +13,6 @@
 *.order
 modules.builtin
 *.elf
-*.d
 
 #
 # git files that we don't want to ignore even it they are dot-files
@@ -24,10 +23,6 @@ modules.builtin
 *.orig
 *~
 
-out/
-rpi0w/
-rpi02w/
-rpi3/
-rpi4/
+build-*/
 .idea/
 

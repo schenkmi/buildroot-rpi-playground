@@ -16,7 +16,7 @@ git clone --recursive https://github.com/schenkmi/buildroot-rpi-playground.git
 
 ```
 cd buildroot-rpi-playground
-mkdir -p rpi0w && cd rpi0w
+mkdir -p build-rpi0w && cd build-rpi0w
 make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi0w_defconfig
 make
 ```
@@ -25,7 +25,7 @@ make
 
 ```
 cd buildroot-rpi-playground
-mkdir -p rpi02w && cd rpi02w
+mkdir -p build-rpi02w && cd build-rpi02w
 make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi02w_defconfig
 make
 ```
@@ -34,7 +34,7 @@ make
 
 ```
 cd buildroot-rpi-playground
-mkdir -p rpi3 && cd rpi3
+mkdir -p build-rpi3 && cd build-rpi3
 make -C ../buildroot O="$(pwd)" BR2_EXTERNAL="../buildroot-external" rpi3_defconfig
 make
 ```
